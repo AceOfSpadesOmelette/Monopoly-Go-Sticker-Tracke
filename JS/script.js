@@ -2279,9 +2279,9 @@ if (dlTradePngButtonComponent) {
     document.getElementById("trade-screenshot").style.background = `url("assets/background/Collections_Album_BG.png")`;
     ResizeElementBeforeCapture(document.getElementById("trade-screenshot"));
     captureScreenshot("trade-screenshot");
-    document.getElementById("fortrade-screenshot-area").innerHTML = "";
-    document.getElementById("lookingfor-screenshot-area").innerHTML = "";
-    document.getElementById("trade-screenshot").style.display = "none";
+    // document.getElementById("fortrade-screenshot-area").innerHTML = "";
+    // document.getElementById("lookingfor-screenshot-area").innerHTML = "";
+    // document.getElementById("trade-screenshot").style.display = "none";
     setTimeout(function () {
       const DownloadSuccessfulText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "DownloadSuccessful")[CurrentLanguageCode];
       dlTradePngButtonText.textContent = DownloadSuccessfulText;

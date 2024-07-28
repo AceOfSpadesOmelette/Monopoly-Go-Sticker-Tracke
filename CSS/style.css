@@ -410,7 +410,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	/* text-align: center; */
 	/* display: grid; */
 	/* align-items: center; */
-	transform: perspective(200px) rotateX(10deg);
+	/* transform: perspective(200px) rotateX(10deg); */
 	border-bottom-left-radius: 6%20px;
 	border-top-left-radius: 3%3px;
 	border-bottom-right-radius: 6%20px;
@@ -420,7 +420,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
   	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 110px);
+	transform: translate(0, 110px) perspective(200px) rotateX(10deg);
 }
 
 .sticker-ribbon-screenshot {
@@ -432,7 +432,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	border-radius: 50% / 10%;
 	color: white;
 	font-family: "Quicksand-Bold", "MYSH Font";
-	transform: perspective(200px) rotateX(10deg);
+	/* transform: perspective(200px) rotateX(10deg); */
 	border-bottom-left-radius: 6%20px;
 	border-top-left-radius: 3%3px;
 	border-bottom-right-radius: 6%20px;
@@ -441,7 +441,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
   	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 109px);
+	transform: translate(0, 109px) perspective(200px) rotateX(10deg);
 }
 
 .sticker-ribbon-transparent {
