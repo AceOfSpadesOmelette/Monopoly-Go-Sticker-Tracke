@@ -1909,7 +1909,10 @@ function copyToCollectionScreenshot(DestinationElement) {
         
         // SPECIAL PLACEMENT FOR SAFARI
         if (navigator.userAgent.indexOf("Safari") > -1) {
-          container.querySelector(SpareSnapshotTextClass).style.marginTop = (parseInt(container.querySelector(SpareSnapshotTextClass).style.marginTop) + 1) + "px";
+          const spareSnapshotTextElement = container.querySelector(`.${SpareSnapshotTextClass}`);
+          if (spareSnapshotTextElement) {
+            spareSnapshotTextElement.style.marginTop = (parseInt(spareSnapshotTextElement.style.marginTop) + 1) + "px";
+          }
 
           let stickerRibbon = "";
           if (container.querySelector(".sticker-ribbon-screenshot")) {
@@ -1918,7 +1921,9 @@ function copyToCollectionScreenshot(DestinationElement) {
           if (container.querySelector(".sticker-ribbon-transparent")) {
             stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
           }
-          stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+          if (stickerRibbon) {
+            stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+          }
         }
       }
       
@@ -2056,8 +2061,11 @@ function copyToTradeScreenshot(DestinationElement, UserDataProperty) {
               
               // SPECIAL PLACEMENT FOR SAFARI
               if (navigator.userAgent.indexOf("Safari") > -1) {
-                container.querySelector(SpareSnapshotTextClass).style.marginTop = (parseInt(container.querySelector(SpareSnapshotTextClass).style.marginTop) + 1) + "px";
-      
+                const spareSnapshotTextElement = container.querySelector(`.${SpareSnapshotTextClass}`);
+                if (spareSnapshotTextElement) {
+                  spareSnapshotTextElement.style.marginTop = (parseInt(spareSnapshotTextElement.style.marginTop) + 1) + "px";
+                }
+
                 let stickerRibbon = "";
                 if (container.querySelector(".sticker-ribbon-screenshot")) {
                   stickerRibbon = container.querySelector(".sticker-ribbon-screenshot");
@@ -2065,7 +2073,9 @@ function copyToTradeScreenshot(DestinationElement, UserDataProperty) {
                 if (container.querySelector(".sticker-ribbon-transparent")) {
                   stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
                 }
-                stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+                if (stickerRibbon) {
+                  stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+                }
               }
             }
           }
@@ -2817,31 +2827,31 @@ document.addEventListener('click', function (event) {
 });
 
 document.addEventListener('mousedown', function (event) {
-  if (event.target.classList.contains('set-logo')) {
+  if (event.target && event.target.classList && event.target.classList.contains('set-logo')) {
     event.target.classList.add('scale-down');
   }
 });
 
 document.addEventListener('mouseup', function (event) {
-  if (event.target.classList.contains('set-logo')) {
+  if (event.target && event.target.classList && event.target.classList.contains('set-logo')) {
     event.target.classList.remove('scale-down');
   }
 });
 
 document.addEventListener('mouseleave', function (event) {
-  if (event.target.classList.contains('set-logo')) {
+  if (event.target && event.target.classList && event.target.classList.contains('set-logo')) {
     event.target.classList.remove('scale-down');
   }
 });
 
 document.addEventListener('touchstart', function (event) {
-  if (event.target.classList.contains('set-logo')) {
+  if (event.target && event.target.classList && event.target.classList.contains('set-logo')) {
     event.target.classList.add('scale-down');
   }
 });
 
 document.addEventListener('touchend', function (event) {
-  if (event.target.classList.contains('set-logo')) {
+  if (event.target && event.target.classList && event.target.classList.contains('set-logo')) {
     event.target.classList.remove('scale-down');
   }
 });
