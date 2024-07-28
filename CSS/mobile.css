@@ -225,7 +225,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	margin-bottom: 2%;
 	max-height: calc(100% - 40px);
 	background-color: rgb(219 197 133 / 40%);
-	column-gap: 16px;
+	column-gap: 8px;
 	row-gap: 8px;
 }
 
