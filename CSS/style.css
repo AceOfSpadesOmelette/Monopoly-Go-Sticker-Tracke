@@ -420,7 +420,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
   	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 110px) perspective(200px) rotateX(10deg);
+	transform: translate(0, 110px);
 }
 
 .sticker-ribbon-screenshot {
@@ -441,7 +441,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
   	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 109px) perspective(200px) rotateX(10deg);
+	transform: translate(0, 110px);
 }
 
 .sticker-ribbon-transparent {

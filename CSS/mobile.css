@@ -400,7 +400,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
 	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 97px) perspective(200px) rotateX(10deg);
+	transform: translate(0, 97px);
 }
 
 .sticker-ribbon-screenshot {
@@ -421,7 +421,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	position: relative;
   	z-index: 3;
 	pointer-events: none;
-	transform: translate(0, 109px) perspective(200px) rotateX(10deg);
+	transform: translate(0, 109px);
 }
 
 /*@media only screen and (max-width: 600px) { .sticker-ribbon{transform: translate(0, 273%);} }
