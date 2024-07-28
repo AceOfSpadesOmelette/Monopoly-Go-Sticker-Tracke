@@ -221,7 +221,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	align-items: center;
 	flex-wrap: wrap;
 	border-radius: 30px;
-	padding: 8px;
+	padding: 8px 0 8px 0;
 	margin-bottom: 2%;
 	max-height: calc(100% - 40px);
 	background-color: rgb(219 197 133 / 40%);
