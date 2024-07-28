@@ -1854,9 +1854,11 @@ function copyToCollectionScreenshot(DestinationElement) {
 
     const screenshotContainers = collectionScreenshot.querySelectorAll(".sticker-card-container-screenshot");
     screenshotContainers.forEach(function (container) {
-      
+           
       container.querySelector(".trade-button-container-screenshot").style.width = "100%";
       container.querySelector(".trade-button-container-screenshot").style.display = "flex";   
+
+      if(container.querySelector(".sticker-ribbon")){container.innerHTML = container.innerHTML.replace(/sticker-ribbon/g, "sticker-ribbon-screenshot");}
 
       const globalID = container.getAttribute("data-global");
       const spanElement = document.createElement("span");
@@ -1881,22 +1883,24 @@ function copyToCollectionScreenshot(DestinationElement) {
 
         // SPARE CONTAINER
         const spareContainer = document.createElement("div");
-        spareContainer.className = "spare-container-no-spinner";
+        let SpareContainerClass = "spare-container-no-spinner";
         let SpareSnapshotTextClass = "spare-snapshot-text";
         if (stickerData.Golden === "1") {
           SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
-          spareContainer.className = "spare-container-no-spinner-golden";
+          SpareContainerClass = "spare-container-no-spinner-golden";
           SpareSnapshotTextClass = "spare-snapshot-text-golden";
-        };        
+        };
+        if(StickerSelectedZeroShowOneBack === 1 && userData[globalID].selected === 0){SpareContainerClass = SpareContainerClass + "-no-art"}      
+        spareContainer.className = SpareContainerClass;  
         spareContainer.innerHTML = `
           <img draggable="false" class="spare-img" src="assets/stickers/${SpareImagePath}">
           <span class="${SpareSnapshotTextClass}">+${userData[globalID].spare}</span>
         `;
 
         // PLACE SPARE CONTAINER ELEMENT BEFORE STICKER RIBBON
-        if (container.querySelector(".sticker-ribbon")) {
-          const parentElement = container.querySelector(".sticker-ribbon").parentNode;
-          parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon"));
+        if (container.querySelector(".sticker-ribbon-screenshot")) {
+          const parentElement = container.querySelector(".sticker-ribbon-screenshot").parentNode;
+          parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-screenshot"));
         }
         if (container.querySelector(".sticker-ribbon-transparent")) {
           const parentElement = container.querySelector(".sticker-ribbon-transparent").parentNode;
@@ -1905,11 +1909,11 @@ function copyToCollectionScreenshot(DestinationElement) {
         
         // SPECIAL PLACEMENT FOR SAFARI
         if (navigator.userAgent.indexOf("Safari") > -1) {
-          const SpareSnapshotText = container.querySelector(".spare-snapshot-text");
-          SpareSnapshotText.style.marginTop = (parseInt(SpareSnapshotText.style.marginTop) + 1) + "px";
+          container.querySelector(SpareSnapshotTextClass).style.marginTop = (parseInt(container.querySelector(SpareSnapshotTextClass).style.marginTop) + 1) + "px";
+
           let stickerRibbon = "";
-          if (container.querySelector(".sticker-ribbon")) {
-            stickerRibbon = container.querySelector(".sticker-ribbon");
+          if (container.querySelector(".sticker-ribbon-screenshot")) {
+            stickerRibbon = container.querySelector(".sticker-ribbon-screenshot");
           }
           if (container.querySelector(".sticker-ribbon-transparent")) {
             stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
@@ -1918,25 +1922,6 @@ function copyToCollectionScreenshot(DestinationElement) {
         }
       }
       
-      if (container.querySelector(".sticker-ribbon")) {
-        container.querySelector(".sticker-ribbon").style.transform = "translate(0, 306%)";
-      }
-      if (container.querySelector(".spare-container-no-spinner")) {
-        container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 87px)";
-      }
-      if (container.querySelector(".spare-container-no-spinner-golden")) {
-        container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 87px)";
-      }
-      
-      if(userData[globalID].selected === 0){
-        if (container.querySelector(".spare-container-no-spinner")) {
-          container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 95px)";
-        }
-        if (container.querySelector(".spare-container-no-spinner-golden")) {
-          container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 95px)";
-        }
-      }
-
       // Check if all ".lf-btn" in all ".trade-button-container-screenshot" have ".btnRed" class
       let allButtonsRed = true;
       const tradeButtonContainers = collectionScreenshot.querySelectorAll(".trade-button-container-screenshot");
@@ -2014,7 +1999,9 @@ function copyToTradeScreenshot(DestinationElement, UserDataProperty) {
       collectionScreenshot.innerHTML = collectionScreenshot.innerHTML.replace(/sticker-card-container/g, "sticker-card-container-screenshot");
 
       const screenshotContainers = collectionScreenshot.querySelectorAll(".sticker-card-container-screenshot");
-      screenshotContainers.forEach(function (container) {
+      screenshotContainers.forEach(function (container) {        
+        if(container.querySelector(".sticker-ribbon")){container.innerHTML = container.innerHTML.replace(/sticker-ribbon/g, "sticker-ribbon-screenshot");}
+
         const globalID = container.getAttribute("data-global");
         const spanElement = document.createElement("span");
         spanElement.className = "spare-text-screenshot";
@@ -2042,59 +2029,44 @@ function copyToTradeScreenshot(DestinationElement, UserDataProperty) {
     
             // SPARE CONTAINER
             const spareContainer = document.createElement("div");
-            spareContainer.className = "spare-container-no-spinner";
+            let SpareContainerClass = "spare-container-no-spinner";
             let SpareSnapshotTextClass = "spare-snapshot-text";
             if (stickerData.Golden === "1") {
               SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
-              spareContainer.className = "spare-container-no-spinner-golden";
+              SpareContainerClass = "spare-container-no-spinner-golden";
               SpareSnapshotTextClass = "spare-snapshot-text-golden";
-            };        
+            };
+            if(StickerSelectedZeroShowOneBack === 1 && userData[globalID].selected === 0){SpareContainerClass = SpareContainerClass + "-no-art"}      
+            spareContainer.className = SpareContainerClass;  
             spareContainer.innerHTML = `
               <img draggable="false" class="spare-img" src="assets/stickers/${SpareImagePath}">
               <span class="${SpareSnapshotTextClass}">+${userData[globalID].spare}</span>
             `;
     
-            // PLACE SPARE CONTAINER ELEMENT BEFORE STICKER RIBBON
-            if (container.querySelector(".sticker-ribbon")) {
-              const parentElement = container.querySelector(".sticker-ribbon").parentNode;
-              parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon"));
-            }
-            if (container.querySelector(".sticker-ribbon-transparent")) {
-              const parentElement = container.querySelector(".sticker-ribbon-transparent").parentNode;
-              parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-transparent"));
-            }
-            
-            // SPECIAL PLACEMENT FOR SAFARI
-            if (navigator.userAgent.indexOf("Safari") > -1) {
-              const SpareSnapshotText = container.querySelector(".spare-snapshot-text");
-              SpareSnapshotText.style.marginTop = (parseInt(SpareSnapshotText.style.marginTop) + 1) + "px";
-              let stickerRibbon = "";
-              if (container.querySelector(".sticker-ribbon")) {
-                stickerRibbon = container.querySelector(".sticker-ribbon");
+            if (userData[globalID].spare > 0) {
+              // PLACE SPARE CONTAINER ELEMENT BEFORE STICKER RIBBON
+              if (container.querySelector(".sticker-ribbon-screenshot")) {
+                const parentElement = container.querySelector(".sticker-ribbon-screenshot").parentNode;
+                parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-screenshot"));
               }
               if (container.querySelector(".sticker-ribbon-transparent")) {
-                stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
+                const parentElement = container.querySelector(".sticker-ribbon-transparent").parentNode;
+                parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-transparent"));
               }
-              stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
-            }
-          }
-
-          if (container.querySelector(".sticker-ribbon")) {
-            container.querySelector(".sticker-ribbon").style.transform = "translate(0, 306%)";
-          }
-          if (container.querySelector(".spare-container-no-spinner")) {
-            container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 87px)";
-          }
-          if (container.querySelector(".spare-container-no-spinner-golden")) {
-            container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 87px)";
-          }
-          
-          if(userData[globalID].selected === 0 && StickerSelectedZeroShowOneBack === 1){
-            if (container.querySelector(".spare-container-no-spinner")) {
-              container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 95px)";
-            }
-            if (container.querySelector(".spare-container-no-spinner-golden")) {
-              container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 95px)";
+              
+              // SPECIAL PLACEMENT FOR SAFARI
+              if (navigator.userAgent.indexOf("Safari") > -1) {
+                container.querySelector(SpareSnapshotTextClass).style.marginTop = (parseInt(container.querySelector(SpareSnapshotTextClass).style.marginTop) + 1) + "px";
+      
+                let stickerRibbon = "";
+                if (container.querySelector(".sticker-ribbon-screenshot")) {
+                  stickerRibbon = container.querySelector(".sticker-ribbon-screenshot");
+                }
+                if (container.querySelector(".sticker-ribbon-transparent")) {
+                  stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
+                }
+                stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+              }
             }
           }
         }
