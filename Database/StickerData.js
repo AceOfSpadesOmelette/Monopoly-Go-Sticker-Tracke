@@ -12007,7 +12007,7 @@ export const STICKER_DATA = [
     },
     {
         "GlobalID": "80802",
-        "StickerNameEN": "Ammo Cash",
+        "StickerNameEN": "Packed Stack",
         "StickerRarity": "2",
         "Golden": "0",
         "Prestige": "0",
@@ -14594,8 +14594,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_1.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Built to Scale",
-        "StickerNameSC": "Built to Scale"
+        "StickerNameTC": "為攀而建",
+        "StickerNameSC": "为攀而建"
     },
     {
         "GlobalID": "82402",
@@ -14612,8 +14612,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_2.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Get a Grip!",
-        "StickerNameSC": "Get a Grip!"
+        "StickerNameTC": "抓緊攀爬！",
+        "StickerNameSC": "抓紧攀爬！"
     },
     {
         "GlobalID": "82403",
@@ -14630,8 +14630,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_3.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Harness Your Power",
-        "StickerNameSC": "Harness Your Power"
+        "StickerNameTC": "駕馭力量",
+        "StickerNameSC": "驾驭力量"
     },
     {
         "GlobalID": "82404",
@@ -14648,8 +14648,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_4.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Chalk it Up",
-        "StickerNameSC": "Chalk it Up"
+        "StickerNameTC": "粉塵飛舞",
+        "StickerNameSC": "粉尘飞舞"
     },
     {
         "GlobalID": "82405",
@@ -14666,8 +14666,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_5.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Bouldering Buds",
-        "StickerNameSC": "Bouldering Buds"
+        "StickerNameTC": "攀岩新手",
+        "StickerNameSC": "攀岩新手"
     },
     {
         "GlobalID": "82406",
@@ -14684,8 +14684,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_6.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Social Climbers",
-        "StickerNameSC": "Social Climbers"
+        "StickerNameTC": "攀岩社交",
+        "StickerNameSC": "攀岩社交"
     },
     {
         "GlobalID": "82407",
@@ -14702,8 +14702,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_7.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Beyond Reach?",
-        "StickerNameSC": "Beyond Reach?"
+        "StickerNameTC": "遙不觸及？",
+        "StickerNameSC": "遥不触及？"
     },
     {
         "GlobalID": "82408",
@@ -14720,8 +14720,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_8.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Peak Performance",
-        "StickerNameSC": "Peak Performance"
+        "StickerNameTC": "巔峰表現",
+        "StickerNameSC": "巅峰表现"
     },
     {
         "GlobalID": "82409",
@@ -14738,8 +14738,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_24_9.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "StickerNameTC": "Reaching the Top",
-        "StickerNameSC": "Reaching the Top"
+        "StickerNameTC": "登上巔峰",
+        "StickerNameSC": "登上巅峰"
     },
     {
         "GlobalID": "82501",
@@ -14756,8 +14756,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_1.png",
         "Colour": "#75cfc0",
         "Raw": "1",
-        "StickerNameTC": "Balloon Fiesta",
-        "StickerNameSC": "Balloon Fiesta"
+        "StickerNameTC": "氣球狂歡",
+        "StickerNameSC": "气球狂欢"
     },
     {
         "GlobalID": "82502",
@@ -14774,8 +14774,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_2.png",
         "Colour": "#75cfc1",
         "Raw": "1",
-        "StickerNameTC": "Floating On Air!",
-        "StickerNameSC": "Floating On Air!"
+        "StickerNameTC": "空中飄浮！",
+        "StickerNameSC": "空中飘浮！"
     },
     {
         "GlobalID": "82503",
@@ -14792,8 +14792,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_3.png",
         "Colour": "#75cfc2",
         "Raw": "1",
-        "StickerNameTC": "Basket Buddies",
-        "StickerNameSC": "Basket Buddies"
+        "StickerNameTC": "籃子夥伴",
+        "StickerNameSC": "篮子伙伴"
     },
     {
         "GlobalID": "82504",
@@ -14810,8 +14810,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_4.png",
         "Colour": "#75cfc3",
         "Raw": "1",
-        "StickerNameTC": "Full of Hot Air",
-        "StickerNameSC": "Full of Hot Air"
+        "StickerNameTC": "填滿熱氣",
+        "StickerNameSC": "填满热气"
     },
     {
         "GlobalID": "82505",
@@ -14828,8 +14828,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_5.png",
         "Colour": "#75cfc4",
         "Raw": "1",
-        "StickerNameTC": "Ascending Aviators",
-        "StickerNameSC": "Ascending Aviators"
+        "StickerNameTC": "升空飛行員",
+        "StickerNameSC": "升空飞行员"
     },
     {
         "GlobalID": "82506",
@@ -14846,8 +14846,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_6.png",
         "Colour": "#75cfc5",
         "Raw": "1",
-        "StickerNameTC": "View Finder",
-        "StickerNameSC": "View Finder"
+        "StickerNameTC": "景觀發現者",
+        "StickerNameSC": "景观发现者"
     },
     {
         "GlobalID": "82507",
@@ -14864,8 +14864,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_7.png",
         "Colour": "#75cfc6",
         "Raw": "1",
-        "StickerNameTC": "Ballooning Fears",
-        "StickerNameSC": "Ballooning Fears"
+        "StickerNameTC": "氣球恐懼",
+        "StickerNameSC": "气球恐惧"
     },
     {
         "GlobalID": "82508",
@@ -14882,8 +14882,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_8.png",
         "Colour": "#75cfc7",
         "Raw": "1",
-        "StickerNameTC": "Cloud Chasers",
-        "StickerNameSC": "Cloud Chasers"
+        "StickerNameTC": "追雲之人",
+        "StickerNameSC": "追云之人"
     },
     {
         "GlobalID": "82509",
@@ -14900,8 +14900,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_25_9.png",
         "Colour": "#75cfc8",
         "Raw": "1",
-        "StickerNameTC": "Rising Stars",
-        "StickerNameSC": "Rising Stars"
+        "StickerNameTC": "升起新星",
+        "StickerNameSC": "升起新星"
     },
     {
         "GlobalID": "82601",
@@ -14918,8 +14918,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_1.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Sun-Up Warm-Up",
-        "StickerNameSC": "Sun-Up Warm-Up"
+        "StickerNameTC": "日出熱身",
+        "StickerNameSC": "日出热身"
     },
     {
         "GlobalID": "82602",
@@ -14936,8 +14936,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_2.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Strokes of Genius",
-        "StickerNameSC": "Strokes of Genius"
+        "StickerNameTC": "天才泳式",
+        "StickerNameSC": "天才泳式"
     },
     {
         "GlobalID": "82603",
@@ -14954,8 +14954,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_3.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Backstroke Boss",
-        "StickerNameSC": "Backstroke Boss"
+        "StickerNameTC": "仰泳老大",
+        "StickerNameSC": "仰泳老大"
     },
     {
         "GlobalID": "82604",
@@ -14972,8 +14972,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_4.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Tri to Catch me!",
-        "StickerNameSC": "Tri to Catch me!"
+        "StickerNameTC": "來捉我吧！",
+        "StickerNameSC": "来捉我吧！"
     },
     {
         "GlobalID": "82605",
@@ -14990,8 +14990,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_5.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Wheely Great",
-        "StickerNameSC": "Wheely Great"
+        "StickerNameTC": "擅於騎行",
+        "StickerNameSC": "擅于骑行"
     },
     {
         "GlobalID": "82606",
@@ -15008,8 +15008,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_6.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Draft and Pass",
-        "StickerNameSC": "Draft and Pass"
+        "StickerNameTC": "尾隨超越",
+        "StickerNameSC": "尾随超越"
     },
     {
         "GlobalID": "82607",
@@ -15026,8 +15026,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_7.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Performance Gain",
-        "StickerNameSC": "Performance Gain"
+        "StickerNameTC": "性能提升",
+        "StickerNameSC": "性能提升"
     },
     {
         "GlobalID": "82608",
@@ -15044,8 +15044,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_8.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Fowl Nemesis!",
-        "StickerNameSC": "Fowl Nemesis!"
+        "StickerNameTC": "飛禽天敵！",
+        "StickerNameSC": "飞禽天敌！"
     },
     {
         "GlobalID": "82609",
@@ -15062,8 +15062,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_26_9.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "StickerNameTC": "Unlikely Synergy",
-        "StickerNameSC": "Unlikely Synergy"
+        "StickerNameTC": "奇蹟加乘",
+        "StickerNameSC": "奇迹加乘"
     },
     {
         "GlobalID": "82701",
@@ -15080,8 +15080,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_1.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Pitch Perfection",
-        "StickerNameSC": "Pitch Perfection"
+        "StickerNameTC": "完美場地",
+        "StickerNameSC": "完美场地"
     },
     {
         "GlobalID": "82702",
@@ -15098,8 +15098,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_2.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Handling!",
-        "StickerNameSC": "Handling!"
+        "StickerNameTC": "爪中持球！",
+        "StickerNameSC": "爪中持球！"
     },
     {
         "GlobalID": "82703",
@@ -15116,8 +15116,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_3.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Stache Mascot",
-        "StickerNameSC": "Stache Mascot"
+        "StickerNameTC": "小鬍子吉祥物",
+        "StickerNameSC": "小胡子吉祥物"
     },
     {
         "GlobalID": "82704",
@@ -15134,8 +15134,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_4.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Fancy Footwork",
-        "StickerNameSC": "Fancy Footwork"
+        "StickerNameTC": "花俏腳法",
+        "StickerNameSC": "花俏脚法"
     },
     {
         "GlobalID": "82705",
@@ -15152,8 +15152,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_5.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Net Positive",
-        "StickerNameSC": "Net Positive"
+        "StickerNameTC": "一腳射入",
+        "StickerNameSC": "一脚射入"
     },
     {
         "GlobalID": "82706",
@@ -15170,8 +15170,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_6.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Goal-oriented!",
-        "StickerNameSC": "Goal-oriented!"
+        "StickerNameTC": "射向龍門！",
+        "StickerNameSC": "射向龙门！"
     },
     {
         "GlobalID": "82707",
@@ -15188,8 +15188,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_7.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Fan Fanfare",
-        "StickerNameSC": "Fan Fanfare"
+        "StickerNameTC": "粉絲鼓勵",
+        "StickerNameSC": "粉丝鼓励"
     },
     {
         "GlobalID": "82708",
@@ -15206,8 +15206,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_8.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Yip Yip Hooray!",
-        "StickerNameSC": "Yip Yip Hooray!"
+        "StickerNameTC": "耶耶萬歲！",
+        "StickerNameSC": "耶耶万岁！"
     },
     {
         "GlobalID": "82709",
@@ -15224,8 +15224,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_27_9.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "StickerNameTC": "Paw-some Champs",
-        "StickerNameSC": "Paw-some Champs"
+        "StickerNameTC": "爪抓獎盃",
+        "StickerNameSC": "爪抓奖杯"
     },
     {
         "GlobalID": "82801",
@@ -15242,8 +15242,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_1.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Current Race",
-        "StickerNameSC": "Current Race"
+        "StickerNameTC": "目前賽事",
+        "StickerNameSC": "目前赛事"
     },
     {
         "GlobalID": "82802",
@@ -15260,8 +15260,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_2.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Two-Tired",
-        "StickerNameSC": "Two-Tired"
+        "StickerNameTC": "兩輪騎乘",
+        "StickerNameSC": "两轮骑乘"
     },
     {
         "GlobalID": "82803",
@@ -15278,8 +15278,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_3.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "GO Team!",
-        "StickerNameSC": "GO Team!"
+        "StickerNameTC": "隊伍出賽！",
+        "StickerNameSC": "队伍出赛！"
     },
     {
         "GlobalID": "82804",
@@ -15296,8 +15296,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_4.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Charged Up",
-        "StickerNameSC": "Charged Up"
+        "StickerNameTC": "精力充沛",
+        "StickerNameSC": "精力充沛"
     },
     {
         "GlobalID": "82805",
@@ -15314,8 +15314,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_5.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Spin The Wheels",
-        "StickerNameSC": "Spin The Wheels"
+        "StickerNameTC": "轉動車輪",
+        "StickerNameSC": "转动车轮"
     },
     {
         "GlobalID": "82806",
@@ -15332,8 +15332,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_6.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Spoketacular!",
-        "StickerNameSC": "Spoketacular!"
+        "StickerNameTC": "矚目驚心！",
+        "StickerNameSC": "瞩目惊心！"
     },
     {
         "GlobalID": "82807",
@@ -15350,8 +15350,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_7.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Super Cyclists",
-        "StickerNameSC": "Super Cyclists"
+        "StickerNameTC": "超級單車手",
+        "StickerNameSC": "超级单车手"
     },
     {
         "GlobalID": "82808",
@@ -15368,8 +15368,8 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_8.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Watt's Up?",
-        "StickerNameSC": "Watt's Up?"
+        "StickerNameTC": "功率如何？",
+        "StickerNameSC": "功率如何？"
     },
     {
         "GlobalID": "82809",
@@ -15386,7 +15386,7 @@ export const STICKER_DATA = [
         "ImageSource": "monopolygames_28_9.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "StickerNameTC": "Shocking Win!",
-        "StickerNameSC": "Shocking Win!"
+        "StickerNameTC": "驚人勝利",
+        "StickerNameSC": "惊人胜利"
     }
 ]

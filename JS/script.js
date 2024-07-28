@@ -34,7 +34,7 @@ const IncludePlayerLinkBtnComponent = document.getElementById("IncludePlayerLink
 const dlPngButtonComponent = document.getElementById("dl-png");
 const CollectionScreenshotBlock = document.getElementById("collection-screenshot");
 const TradeScreenshotBlock = document.getElementById("trade-screenshot");
-const SnapshotAreaBlock = document.getElementById("trade-screenshot");
+const SnapshotAreaBlock = document.getElementById("snapshot-area");
 const dlTradePngButtonComponent = document.getElementById("dl-trade-png");
 const TradeScreenshotContainerBlock = document.getElementById("trade-screenshot-container");
 const ForTradeScreenshotAreaBlock = document.getElementById("fortrade-screenshot-area");
@@ -47,8 +47,8 @@ const ToggleSelectedBtnComponent = document.getElementById("ToggleSelectedBtn");
 const ResetSparesBtnComponent = document.getElementById("ResetSparesBtn");
 const ToggleLFBtnComponent = document.getElementById("ToggleLFBtn");
 const ToggleFTBtnComponent = document.getElementById("ToggleFTBtn");
-const ResetLFBtnComponent = document.getElementById("ToggleLFBtn");
-const ResetFTBtnComponent = document.getElementById("ToggleFTBtn");
+const ResetLFBtnComponent = document.getElementById("ResetLFBtn");
+const ResetFTBtnComponent = document.getElementById("ResetFTBtn");
 const ResetAllStickersBtnComponent = document.getElementById("ResetAllStickersBtn");
 const NewsContentBlock = document.getElementById("news-content");
 const ChangeStickerStyleBtnComponent = document.getElementById("ChangeStickerStyleBtn");
@@ -332,9 +332,8 @@ function getRibbonStyle(Colour, RibbonEdgeColour, DarkenedColour) {
           border: 2px solid ${DarkenedColour};`;
 }
 
-function createStickerInnerHTML(item, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, ImageClass, StickerSetPath, ImageSource, StickerRarity) {
+function createStickerStructureContainerInnerHTML(item, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, ImageClass, StickerSetPath, ImageSource, StickerRarity) {
   return `
-    <div class="sticker-structure-container">
       <div class="sticker-star-container">
         <img draggable="false" class="star-img" src="assets/stickers/Collections_Star_${StickerRarity}Star.png">
       </div>
@@ -349,8 +348,7 @@ function createStickerInnerHTML(item, StickerNameClass, FrameHTML, RibbonStyle, 
           </span>
           <span class="StickerNameText" data-stickerid="${GlobalID}"></span>
         </span>
-      </div>
-    </div>`;
+      </div>`;
 }
 
 function CreateStickerElement(item, ContainerClass, ImageClass, isTracking) {
@@ -369,7 +367,10 @@ function CreateStickerElement(item, ContainerClass, ImageClass, isTracking) {
   const container = document.createElement("div");
   container.dataset.global = GlobalID;
   container.classList.add(ContainerClass);
-  container.innerHTML = createStickerInnerHTML(item, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, ImageClass, StickerSetPath, ImageSource, StickerRarity);
+  const StickerStructureContainer = document.createElement("div");
+  StickerStructureContainer.classList.add("sticker-structure-container");
+  container.appendChild(StickerStructureContainer);
+  StickerStructureContainer.innerHTML = createStickerStructureContainerInnerHTML(item, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, ImageClass, StickerSetPath, ImageSource, StickerRarity);
 
   if (isTracking) {
     appendSpareSpinner(container);
@@ -397,7 +398,7 @@ function ApplySelectedStyle(container) {
   const RibbonStyle = getRibbonStyle(Colour, RibbonEdgeColour, DarkenedColour);
   const SetText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "set")[CurrentLanguageCode];
 
-  StickerStructureContainer.innerHTML = createStickerInnerHTML(stickerData, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, 'sticker-card', StickerSetPath, ImageSource, StickerRarity);
+  StickerStructureContainer.innerHTML = createStickerStructureContainerInnerHTML(stickerData, StickerNameClass, FrameHTML, RibbonStyle, SetText, StickerSet, StickerSetNo, GlobalID, 'sticker-card', StickerSetPath, ImageSource, StickerRarity);
 
   if (userDataItem.selected === 0 && StickerSelectedZeroShowOneBack === 1) {
     const StickerWhenNotSelected = Golden === "1" ? `assets/stickers/CardBack_Special.png` : `assets/stickers/CardBack_Basic_0.png`;
@@ -424,17 +425,17 @@ function ApplySelectedStyle(container) {
 
   const spareSpinnerContainer = container.querySelector('.spare-spinner-container');
   if (StickerSelectedZeroShowOneBack === 0) {
-    spareSpinnerContainer.style.marginTop = '5.5px';
+    spareSpinnerContainer.style.marginTop = '2px';
   } else if (StickerSelectedZeroShowOneBack === 1) {
     if (WebZeroMobileOne === 0) {
-      spareSpinnerContainer.style.marginTop = userDataItem.selected === 0 ? '55px' : '6.5px';
+      spareSpinnerContainer.style.marginTop = userDataItem.selected === 0 ? '2px' : '2px';
     } else if (WebZeroMobileOne === 1) {
       const ribbonTransparent = container.querySelector('.sticker-ribbon-transparent');
       if (userDataItem.selected === 0) {
-        ribbonTransparent.style.marginTop = '-5.4rem';
-        spareSpinnerContainer.style.marginTop = '3.29rem';
+        // ribbonTransparent.style.marginTop = '-5.4rem';
+        spareSpinnerContainer.style.marginTop = '2px';
       } else {
-        spareSpinnerContainer.style.marginTop = '0.34rem';
+        spareSpinnerContainer.style.marginTop = '2px';
       }
     }
   }
@@ -816,7 +817,8 @@ function updateClearFiltersButton() {
 }
 
 function ChangeClearFiltersButtonStyle() {
-  if (FilterLengthTextSpan.textContent > 0) {
+  const filterLength = parseInt(FilterLengthTextSpan.textContent.replace(/\D/g, ''));
+  if (filterLength > 0) {
     ClearFiltersBtnComponent.classList.add("btnRed");
   } else {
     ClearFiltersBtnComponent.classList.remove("btnRed");
@@ -1852,6 +1854,10 @@ function copyToCollectionScreenshot(DestinationElement) {
 
     const screenshotContainers = collectionScreenshot.querySelectorAll(".sticker-card-container-screenshot");
     screenshotContainers.forEach(function (container) {
+      
+      container.querySelector(".trade-button-container-screenshot").style.width = "100%";
+      container.querySelector(".trade-button-container-screenshot").style.display = "flex";   
+
       const globalID = container.getAttribute("data-global");
       const spanElement = document.createElement("span");
       spanElement.className = "spare-text-screenshot";
@@ -1869,45 +1875,35 @@ function copyToCollectionScreenshot(DestinationElement) {
       }
 
       if (userData[globalID].spare > 0) {
-        const stickerData = STICKER_DATA.find(item => item["GlobalID"] === globalID)
-        let SpareImagePath = "Collections_TradingGroup_NumberBG_Small.png";
-        if (stickerData.Golden === "1") {
-          SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
-        };
+
+        const stickerData = STICKER_DATA.find(item => item["GlobalID"] === globalID);
+        let SpareImagePath = "Collections_TradingGroup_NumberBG_Small.png";  
+
+        // SPARE CONTAINER
         const spareContainer = document.createElement("div");
         spareContainer.className = "spare-container-no-spinner";
+        let SpareSnapshotTextClass = "spare-snapshot-text";
+        if (stickerData.Golden === "1") {
+          SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
+          spareContainer.className = "spare-container-no-spinner-golden";
+          SpareSnapshotTextClass = "spare-snapshot-text-golden";
+        };        
         spareContainer.innerHTML = `
           <img draggable="false" class="spare-img" src="assets/stickers/${SpareImagePath}">
-          <span class="spare-snapshot-text">+${userData[globalID].spare}</span>
+          <span class="${SpareSnapshotTextClass}">+${userData[globalID].spare}</span>
         `;
-        if (stickerData.Golden === "1") {
-          spareContainer.querySelector(".spare-img").style.width = "50%";
-          spareContainer.style.marginTop = "-63px";
-          spareContainer.querySelector(".spare-snapshot-text").style.color = "white";
 
-          spareContainer.querySelector(".spare-snapshot-text").style.marginTop = "4.5px";
-        };
-
+        // PLACE SPARE CONTAINER ELEMENT BEFORE STICKER RIBBON
         if (container.querySelector(".sticker-ribbon")) {
           const parentElement = container.querySelector(".sticker-ribbon").parentNode;
           parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon"));
-          container.querySelector(".sticker-ribbon").style.marginTop = "-4.5px";
-          if (stickerData.Golden === "1") { container.querySelector(".sticker-ribbon").style.marginTop = "-8.5px"; }
         }
         if (container.querySelector(".sticker-ribbon-transparent")) {
           const parentElement = container.querySelector(".sticker-ribbon-transparent").parentNode;
           parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-transparent"));
-          container.querySelector(".sticker-ribbon-transparent").style.marginTop = "-58.5px";
         }
-        if (ImgOrientationLandscapeZeroPortraitOne === 1) {
-          if (stickerData.Golden === "0") {
-            container.querySelector(".spare-snapshot-text").style.marginLeft = "-31px";
-            container.querySelector(".spare-snapshot-text").style.marginTop = "3px";
-          }
-          else {
-            container.querySelector(".spare-snapshot-text").style.marginLeft = "-33px";
-          }
-        }
+        
+        // SPECIAL PLACEMENT FOR SAFARI
         if (navigator.userAgent.indexOf("Safari") > -1) {
           const SpareSnapshotText = container.querySelector(".spare-snapshot-text");
           SpareSnapshotText.style.marginTop = (parseInt(SpareSnapshotText.style.marginTop) + 1) + "px";
@@ -1919,6 +1915,25 @@ function copyToCollectionScreenshot(DestinationElement) {
             stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
           }
           stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
+        }
+      }
+      
+      if (container.querySelector(".sticker-ribbon")) {
+        container.querySelector(".sticker-ribbon").style.transform = "translate(0, 306%)";
+      }
+      if (container.querySelector(".spare-container-no-spinner")) {
+        container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 87px)";
+      }
+      if (container.querySelector(".spare-container-no-spinner-golden")) {
+        container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 87px)";
+      }
+      
+      if(userData[globalID].selected === 0){
+        if (container.querySelector(".spare-container-no-spinner")) {
+          container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 95px)";
+        }
+        if (container.querySelector(".spare-container-no-spinner-golden")) {
+          container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 95px)";
         }
       }
 
@@ -1939,18 +1954,7 @@ function copyToCollectionScreenshot(DestinationElement) {
         stickerCardContainers.forEach(function (container) {
           container.style.opacity = "1.0";
         });
-      }
-
-      if (container.querySelector(".sticker-ribbon-transparent")) {
-        container.querySelector(".trade-button-container-screenshot").style.marginTop = "54px";
-      }
-      else { container.querySelector(".trade-button-container-screenshot").style.marginTop = "6px"; }
-      container.querySelector(".trade-button-container-screenshot").style.width = "100%";
-      container.querySelector(".trade-button-container-screenshot").style.display = "flex";
-
-      if (ImgOrientationLandscapeZeroPortraitOne === 1) {
-        container.style.flexBasis = "calc(28% - 10px)";
-      }
+      }      
     });
   } else {
     console.log("Either middle-side or collection-screenshot element is not found.");
@@ -2032,60 +2036,66 @@ function copyToTradeScreenshot(DestinationElement, UserDataProperty) {
           }
 
           if (userData[globalID].spare > 0) {
-            const stickerData = STICKER_DATA.find(item => item["GlobalID"] === globalID)
-            const SpareImagePath = "Collections_TradingGroup_NumberBG_Small.png";
-            if (stickerData.Golden === "1") {
-              SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
-            };
+
+            const stickerData = STICKER_DATA.find(item => item["GlobalID"] === globalID);
+            let SpareImagePath = "Collections_TradingGroup_NumberBG_Small.png";  
+    
+            // SPARE CONTAINER
             const spareContainer = document.createElement("div");
             spareContainer.className = "spare-container-no-spinner";
+            let SpareSnapshotTextClass = "spare-snapshot-text";
+            if (stickerData.Golden === "1") {
+              SpareImagePath = "GoldenBlitz_Stickers_Badge01.png";
+              spareContainer.className = "spare-container-no-spinner-golden";
+              SpareSnapshotTextClass = "spare-snapshot-text-golden";
+            };        
             spareContainer.innerHTML = `
               <img draggable="false" class="spare-img" src="assets/stickers/${SpareImagePath}">
-              <span class="spare-snapshot-text">+${userData[globalID].spare}</span>
+              <span class="${SpareSnapshotTextClass}">+${userData[globalID].spare}</span>
             `;
-            if (stickerData.Golden === "1") {
-              spareContainer.querySelector(".spare-img").style.width = "50%";
-              spareContainer.style.marginTop = "-63px";
-              spareContainer.querySelector(".spare-snapshot-text").style.color = "white";
-
-              spareContainer.querySelector(".spare-snapshot-text").style.marginTop = "4.5px";
-            };
-
+    
+            // PLACE SPARE CONTAINER ELEMENT BEFORE STICKER RIBBON
             if (container.querySelector(".sticker-ribbon")) {
               const parentElement = container.querySelector(".sticker-ribbon").parentNode;
               parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon"));
-              container.querySelector(".sticker-ribbon").style.marginTop = "-4.5px";
-              if (stickerData.Golden === "1") { container.querySelector(".sticker-ribbon").style.marginTop = "-8.5px"; }
             }
             if (container.querySelector(".sticker-ribbon-transparent")) {
               const parentElement = container.querySelector(".sticker-ribbon-transparent").parentNode;
               parentElement.insertBefore(spareContainer, container.querySelector(".sticker-ribbon-transparent"));
-              container.querySelector(".sticker-ribbon-transparent").style.marginTop = "-58.5px";
             }
-            if (ImgOrientationLandscapeZeroPortraitOne === 1) {
-              if (stickerData.Golden === "0") {
-                container.querySelector(".spare-snapshot-text").style.marginLeft = "-31px";
-                container.querySelector(".spare-snapshot-text").style.marginTop = "3px";
-              }
-              else {
-                container.querySelector(".spare-snapshot-text").style.marginLeft = "-33px";
-              }
-            }
+            
+            // SPECIAL PLACEMENT FOR SAFARI
             if (navigator.userAgent.indexOf("Safari") > -1) {
               const SpareSnapshotText = container.querySelector(".spare-snapshot-text");
               SpareSnapshotText.style.marginTop = (parseInt(SpareSnapshotText.style.marginTop) + 1) + "px";
+              let stickerRibbon = "";
               if (container.querySelector(".sticker-ribbon")) {
-                const stickerRibbon = container.querySelector(".sticker-ribbon");
+                stickerRibbon = container.querySelector(".sticker-ribbon");
               }
               if (container.querySelector(".sticker-ribbon-transparent")) {
-                const stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
+                stickerRibbon = container.querySelector(".sticker-ribbon-transparent");
               }
               stickerRibbon.style.marginTop = (parseInt(stickerRibbon.style.marginTop) + 1) + "px";
             }
           }
 
-          if (ImgOrientationLandscapeZeroPortraitOne === 1) {
-            container.style.flexBasis = "calc(28% - 10px)";
+          if (container.querySelector(".sticker-ribbon")) {
+            container.querySelector(".sticker-ribbon").style.transform = "translate(0, 306%)";
+          }
+          if (container.querySelector(".spare-container-no-spinner")) {
+            container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 87px)";
+          }
+          if (container.querySelector(".spare-container-no-spinner-golden")) {
+            container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 87px)";
+          }
+          
+          if(userData[globalID].selected === 0 && StickerSelectedZeroShowOneBack === 1){
+            if (container.querySelector(".spare-container-no-spinner")) {
+              container.querySelector(".spare-container-no-spinner").style.transform = "translate(0, 95px)";
+            }
+            if (container.querySelector(".spare-container-no-spinner-golden")) {
+              container.querySelector(".spare-container-no-spinner-golden").style.transform = "translate(0, 95px)";
+            }
           }
         }
       });
@@ -2190,10 +2200,7 @@ if (dlPngButtonComponent) {
     const snapshotFooterElement = `<div id="collection-screenshot-footer"><div id="collection-screenshot-footer-time">${TimeNow}</div><div id="collection-screenshot-footer-link">https://mogotools.web.app/</div></div>`;
     const collectionScreenshot = CollectionScreenshotBlock;
     collectionScreenshot.innerHTML = snapshotHeaderElement + collectionScreenshot.innerHTML + snapshotFooterElement;
-    if (ImgOrientationLandscapeZeroPortraitOne === 1) {
-      document.getElementById("collection-screenshot-footer-time").style.width = "50%";
-      document.getElementById("collection-screenshot-footer-link").style.width = "50%";
-    }
+    
     ResizeElementBeforeCapture(CollectionScreenshotBlock);
     captureScreenshot("collection-screenshot");
     CollectionScreenshotBlock.innerHTML = "";
@@ -2212,34 +2219,34 @@ if (dlPngButtonComponent) {
 
 if (dlTradePngButtonComponent) {
   dlTradePngButtonComponent.addEventListener("click", function () {
-    CollectionScreenshotBlock.style.display = "none";
-    TradeScreenshotBlock.style.display = "initial";
-    TradeScreenshotContainerBlock.setAttribute("style", "");
-    ForTradeScreenshotAreaBlock.style.height = "";
-    LookingForScreenshotAreaBlock.style.height = "";
+    document.getElementById("collection-screenshot").style.display = "none";
+    document.getElementById("trade-screenshot").style.display = "initial";
+    document.getElementById("trade-screenshot-container").setAttribute("style", "");
+    document.getElementById("fortrade-screenshot-area").style.height = "";
+    document.getElementById("lookingfor-screenshot-area").style.height = "";
 
 
-    ForTradeScreenshotAreaBlock.innerHTML = "";
-    LookingForScreenshotAreaBlock.innerHTML = "";
+    document.getElementById("fortrade-screenshot-area").innerHTML = "";
+    document.getElementById("lookingfor-screenshot-area").innerHTML = "";
     const DownloadingText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "Downloading")[CurrentLanguageCode];
-    const dlTradePngButtonText = dlTradePngButtonComponent.querySelector("#dl-trade-png-btn-text");
+    const dlTradePngButtonText = document.querySelector("#dl-trade-png-btn-text");
     dlTradePngButtonText.textContent = DownloadingText;
-    dlTradePngButtonComponent.classList.add("btnYellowTransition");
+    dlTradePngButtonComponent.classList.add("btnYellow");
 
     copyToTradeScreenshot("fortrade-screenshot-area", "fortrade");
     copyToTradeScreenshot("lookingfor-screenshot-area", "lookingfor");
-    ForTradeScreenshotAreaBlock.style.width = "400px";
-    ForTradeScreenshotAreaBlock.style.background = "";
-    LookingForScreenshotAreaBlock.style.width = "400px";
-    LookingForScreenshotAreaBlock.style.background = "";
+    document.getElementById("fortrade-screenshot-area").style.width = "400px";
+    document.getElementById("fortrade-screenshot-area").style.background = "";
+    document.getElementById("lookingfor-screenshot-area").style.width = "400px";
+    document.getElementById("lookingfor-screenshot-area").style.background = "";
 
-    ForTradeScreenshotAreaBlock.innerHTML = ForTradeScreenshotAreaBlock.innerHTML.replace(/sticker-card-container-screenshot/g, "sticker-card-container-screenshot-trade");
-    LookingForScreenshotAreaBlock.innerHTML = LookingForScreenshotAreaBlock.innerHTML.replace(/sticker-card-container-screenshot/g, "sticker-card-container-screenshot-trade");
+    document.getElementById("fortrade-screenshot-area").innerHTML = document.getElementById("fortrade-screenshot-area").innerHTML.replace(/sticker-card-container-screenshot/g, "sticker-card-container-screenshot-trade");
+    document.getElementById("lookingfor-screenshot-area").innerHTML = document.getElementById("lookingfor-screenshot-area").innerHTML.replace(/sticker-card-container-screenshot/g, "sticker-card-container-screenshot-trade");
 
-    let playerIGN = "";
-    let playerLink = "";
-    if (includeIGN === 1) { playerIGN = PlayerIGNInputComponent.value; }
-    if (includePlayerLink === 1) { playerLink = PlayerLinkInputComponent.value; }
+    var playerIGN = "";
+    var playerLink = "";
+    if (includeIGN === 1) { playerIGN = document.getElementById("player-ign").value; }
+    if (includePlayerLink === 1) { playerLink = document.getElementById("player-link").value; }
     // Create the new element for player info
     const TimeNow = Math.floor(Date.now() / 1000);
     const MyTradeText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "MyTrade")[CurrentLanguageCode];
@@ -2256,7 +2263,7 @@ if (dlTradePngButtonComponent) {
       `
     }
     else {
-      const snapshotHeaderElement = `
+      var snapshotHeaderElement = `
       <div id="collection-screenshot-player-info" style="width: 440px">
         <div id="collection-screenshot-player-name">${playerIGN}</div>
         <div id="collection-screenshot-my-album">${MyTradeText}</div>
@@ -2264,39 +2271,40 @@ if (dlTradePngButtonComponent) {
       </div>
       `;
 
-      const snapshotFooterElement = `<div id="collection-screenshot-footer" style="width: 440px"><div id="collection-screenshot-footer-gamever">${TimeNow}</div><div id="collection-screenshot-footer-link">https://mogotools.web.app/</div></div>`;
-      const tradeScreenshot = TradeScreenshotBlock;
+      var snapshotFooterElement = `<div id="collection-screenshot-footer" style="width: 440px"><div id="collection-screenshot-footer-gamever">${TimeNow}</div><div id="collection-screenshot-footer-link">https://mogotools.web.app/</div></div>`;
+      var tradeScreenshot = document.getElementById("trade-screenshot");
       tradeScreenshot.innerHTML = snapshotHeaderElement + tradeScreenshot.innerHTML + snapshotFooterElement;
     }
 
-
     if (ImgOrientationLandscapeZeroPortraitOne === 0) {
-      TradeScreenshotContainerBlock.style.display = "flex";
-      TradeScreenshotContainerBlock.style.justifyContent = "center";
-      TradeScreenshotContainerBlock.style.columnGap = "30px";
+      document.getElementById("trade-screenshot-container").style.display = "flex";
+      document.getElementById("trade-screenshot-container").style.justifyContent = "center";
+      document.getElementById("trade-screenshot-container").style.columnGap = "30px";
       document.getElementById("collection-screenshot-player-info").style.width = "900px";
       document.getElementById("collection-screenshot-footer").style.width = "900px";
 
-      if (ForTradeScreenshotAreaBlock.scrollHeight > LookingForScreenshotAreaBlock.scrollHeight) {
-        //document.getElementById("fortrade-screenshot-area").style.height = fortradeScreenshotHeight + "px";
-        LookingForScreenshotAreaBlock.style.height = "100%";
+
+      var fortradeScreenshotHeight = document.getElementById("fortrade-screenshot-area").scrollHeight;
+      var lookingforScreenshotHeight = document.getElementById("lookingfor-screenshot-area").scrollHeight;
+
+      if (fortradeScreenshotHeight > lookingforScreenshotHeight) {
+        document.getElementById("lookingfor-screenshot-area").style.height = "100%";
       } else {
-        ForTradeScreenshotAreaBlock.style.height = "100%";
-        //document.getElementById("lookingfor-screenshot-area").style.height = lookingforScreenshotHeight + "px";
+        document.getElementById("fortrade-screenshot-area").style.height = "100%";
       }
     }
 
-    TradeScreenshotBlock.style.background = `url("assets/background/Collections_Album_BG.png")`;
-    ResizeElementBeforeCapture(TradeScreenshotBlock);
+    document.getElementById("trade-screenshot").style.background = `url("assets/background/Collections_Album_BG.png")`;
+    ResizeElementBeforeCapture(document.getElementById("trade-screenshot"));
     captureScreenshot("trade-screenshot");
-    ForTradeScreenshotAreaBlock.innerHTML = "";
-    LookingForScreenshotAreaBlock.innerHTML = "";
-    TradeScreenshotBlock.style.display = "none";
+    document.getElementById("fortrade-screenshot-area").innerHTML = "";
+    document.getElementById("lookingfor-screenshot-area").innerHTML = "";
+    document.getElementById("trade-screenshot").style.display = "none";
     setTimeout(function () {
       const DownloadSuccessfulText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "DownloadSuccessful")[CurrentLanguageCode];
       dlTradePngButtonText.textContent = DownloadSuccessfulText;
       setTimeout(function () {
-        dlTradePngButtonComponent.classList.remove("btnYellowTransition");
+        dlTradePngButtonComponent.classList.remove("btnYellow");
         const DownloadTradePNGBtnText = LANGUAGE_DICTIONARY.find(item => item["translation-key"] === "DownloadTradePNGBtnText")[CurrentLanguageCode];
         dlTradePngButtonText.textContent = DownloadTradePNGBtnText;
       }, 3000);
@@ -2607,6 +2615,7 @@ ResetSparesBtnComponent.onclick = function () {
 }
 
 ToggleLFBtnComponent.onclick = function () {
+  console.log("hi");
   const containers = document.querySelectorAll(".sticker-card-container");
   containers.forEach((container) => {
     const CurrentStickerGlobalID = container.getAttribute("data-global");
@@ -2700,11 +2709,11 @@ function handleBasicMenuNavigationClick(event) {
 
   // Remove .basic-menu-navigation-selected from all navigation elements
   for (let i = 0; i < BasicMenuNavBtnElementGroup.length; i++) {
-    BasicMenuNavBtnElementGroup[i].classList.remove("basic-menu-navigation-selected");
+    BasicMenuNavBtnElementGroup[i].classList.remove("basic-menu-navigation-btn-selected");
   }
 
   // Add .basic-menu-navigation-selected to the clicked element
-  event.target.classList.add("basic-menu-navigation-selected");
+  event.target.classList.add("basic-menu-navigation-btn-selected");
 
   // Set the display of the corresponding content based on the clicked element
   let selectedContentId = "";

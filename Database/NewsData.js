@@ -47,6 +47,11 @@ export const NEWS_DATA = [
     {
         "NewsTime": "1721626735",
         "NewsHeader": "Major Update: Multi-Profile Feature",
-        "NewsContent": "<p>MoGoTools now supports storage of multiple profiles in a browser and keeps track of the prestige setting of your profile.</p>\n<p>Hitting &quot;Save Locally&quot; will automatically saves a copy of your current profile to local storage of the browser you&apos;re using.</p>\n<p>To switch between different profiles, go to &quot;My Profile&quot; and click the &quot;Profile&quot; icon.</p><p>Note that profiles are stored inside your browser&apos;s cache. If you uninstalled your browser or deleted cache, data will be lost. Remember to save a copy of your profile on your computer or smartphone as backup.</p>"
+        "NewsContent": "<p>MoGoTools now supports storage of multiple profiles in a browser and keeps track of the prestige setting of your profile.</p><p>Hitting &quot;Save Locally&quot; will automatically saves a copy of your current profile to local storage of the browser you&apos;re using.</p><p>To switch between different profiles, go to &quot;My Profile&quot; and click the &quot;Profile&quot; icon.</p><p>Note that profiles are stored inside your browser&apos;s cache. If you uninstalled your browser or deleted cache, data will be lost. Remember to save a copy of your profile on your computer or smartphone as backup.</p>"
+    },
+    {
+        "NewsTime": "1721910907",
+        "NewsHeader": "Name Change for Album 8 Monopoly Games, Set 8 #2",
+        "NewsContent": "The English name of Set 8 #2 has been renamed from \"Ammo Cash\" to \"Packed Stack\"."
     }
 ]

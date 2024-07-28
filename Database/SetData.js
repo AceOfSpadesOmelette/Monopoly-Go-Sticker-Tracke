@@ -1270,8 +1270,8 @@ export const SET_DATA = [
         "ImageSource": "Icon_824.png",
         "Colour": "#8e6fb8",
         "Raw": "1",
-        "SetNameTC": "Climbing",
-        "SetNameSC": "Climbing"
+        "SetNameTC": "攀岩",
+        "SetNameSC": "攀岩"
     },
     {
         "SetNameEN": "Hot Air Balloon Race",
@@ -1284,8 +1284,8 @@ export const SET_DATA = [
         "ImageSource": "Icon_825.png",
         "Colour": "#75cfc0",
         "Raw": "1",
-        "SetNameTC": "Hot Air Balloon Race",
-        "SetNameSC": "Hot Air Balloon Race"
+        "SetNameTC": "熱氣球競賽",
+        "SetNameSC": "热气球竞赛"
     },
     {
         "SetNameEN": "Triathlon",
@@ -1298,8 +1298,8 @@ export const SET_DATA = [
         "ImageSource": "Icon_826.png",
         "Colour": "#f5bb3d",
         "Raw": "1",
-        "SetNameTC": "Triathlon",
-        "SetNameSC": "Triathlon"
+        "SetNameTC": "鐵人三項",
+        "SetNameSC": "铁人三项"
     },
     {
         "SetNameEN": "Soccer",
@@ -1312,8 +1312,8 @@ export const SET_DATA = [
         "ImageSource": "Icon_827.png",
         "Colour": "#2fab4b",
         "Raw": "1",
-        "SetNameTC": "Soccer",
-        "SetNameSC": "Soccer"
+        "SetNameTC": "足球",
+        "SetNameSC": "足球"
     },
     {
         "SetNameEN": "Cycling",
@@ -1326,7 +1326,7 @@ export const SET_DATA = [
         "ImageSource": "Icon_828.png",
         "Colour": "#5560DB",
         "Raw": "1",
-        "SetNameTC": "Cycling",
-        "SetNameSC": "Cycling"
+        "SetNameTC": "單車",
+        "SetNameSC": "单车"
     }
 ]
