@@ -221,7 +221,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	align-items: center;
 	flex-wrap: wrap;
 	border-radius: 30px;
-	/* padding: 1% 2% 2% 2%; */
+	padding: 8px;
 	max-height: calc(100% - 40px);
 	background-color: rgb(219 197 133 / 40%);
 	column-gap: 16px;

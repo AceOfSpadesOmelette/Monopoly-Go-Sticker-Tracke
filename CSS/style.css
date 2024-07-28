@@ -243,7 +243,7 @@ img, .spare-header, .basic-menu-nav-btn, #filter-sort-menu-header, #progress-men
 	align-items: center;
 	flex-wrap: wrap;
 	border-radius: 30px;
-	padding: 2% 0 2% 0;
+	padding: 8px;
 	background-color: rgb(219 197 133 / 40%);
 	column-gap: 16px;
 	row-gap: 8px;
